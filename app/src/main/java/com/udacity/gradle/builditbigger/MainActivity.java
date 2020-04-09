@@ -1,22 +1,21 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.test.espresso.IdlingResource;
+import androidx.fragment.app.FragmentManager;
 
-import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.krinotech.jokeandroidlib.MainJokeActivity;
 import com.krinotech.jokeprovider.Joker;
-
+import com.udacity.gradle.builditbigger.free.MainActivityFragment;
 
 public class MainActivity extends AppCompatActivity {
+    private MainActivityFragment mainActivityFragment;
+
     private Joker joker;
+    private FragmentManager fragmentManager;
 
     public String getJoke() {
         return joke;
@@ -39,6 +38,13 @@ public class MainActivity extends AppCompatActivity {
 
         idlingResource = new JokeIdlingResource();
 
+        mainActivityFragment = new MainActivityFragment();
+
+        fragmentManager = getSupportFragmentManager();
+
+        fragmentManager.beginTransaction()
+                .add(R.id.fragment, mainActivityFragment, MainActivityFragment.TAG)
+                .commit();
     }
 
 
@@ -75,14 +81,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void hideProgressBar() {
-        ((MainActivityFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.fragment))
-                .hideProgressBar();
+        mainActivityFragment.hideProgressBar();
     }
 
     public void showProgressBar() {
-        ((MainActivityFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.fragment))
-                .showAdProgress();
+        mainActivityFragment.showProgressBar();
     }
 }

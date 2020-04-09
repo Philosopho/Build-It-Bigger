@@ -1,17 +1,14 @@
-package com.udacity.gradle.builditbigger;
+package com.udacity.gradle.builditbigger.paid;
 
 import android.os.Bundle;
-
-import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.krinotech.jokeprovider.Joker;
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+
+import com.udacity.gradle.builditbigger.R;
 import com.udacity.gradle.builditbigger.databinding.FragmentMainBinding;
 
 
@@ -31,23 +28,14 @@ public class MainActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         fragmentMainBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false);
-        View root = fragmentMainBinding.getRoot();
-
-        // Create an ad request. Check logcat output for the hashed device ID to
-        // get test ads on a physical device. e.g.
-        // "Use AdRequest.Builder.addTestDevice("ABCDEF012345") to get test ads on this device."
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .build();
-        fragmentMainBinding.adView.loadAd(adRequest);
-        return root;
+        return fragmentMainBinding.getRoot();
     }
 
     public void hideProgressBar() {
         fragmentMainBinding.pbJoke.setVisibility(View.GONE);
     }
 
-    public void showAdProgress() {
+    public void showProgressBar() {
         fragmentMainBinding.pbJoke.setVisibility(View.VISIBLE);
     }
 }
