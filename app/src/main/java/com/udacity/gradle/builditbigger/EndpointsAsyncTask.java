@@ -7,6 +7,8 @@ import android.util.Log;
 import android.util.Pair;
 import android.widget.Toast;
 
+import androidx.test.espresso.IdlingResource;
+
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
@@ -16,12 +18,25 @@ import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
 
-class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
+class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
     private static MyApi myApiService = null;
+    private JokeIdlingResource jokeIdlingResource;
     private Context context;
 
     @Override
-    protected String doInBackground(Pair<Context, String>... params) {
+    protected void onPreExecute() {
+        super.onPreExecute();
+        jokeIdlingResource.setIdleState(false);
+        ((MainActivity) context).showProgressBar();
+    }
+
+    public EndpointsAsyncTask(Context context, JokeIdlingResource idlingResource) {
+        this.jokeIdlingResource = idlingResource;
+        this.context = context;
+    }
+
+    @Override
+    protected String doInBackground(Void... params) {
         if(myApiService == null) {  // Only do this once
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
@@ -41,22 +56,25 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
             Log.d("AsyncTask", "doInBackground: Complete");
         }
 
-        context = params[0].first;
-        String name = params[0].second;
-
         Log.d("Async", myApiService.toString());
 
         try {
             Log.d("Async", "doInBackground: TRY");
-            return myApiService.getJoker().execute().getRandomJoke();
+            String randomJoke = myApiService.getJoker().execute().getRandomJoke();
+            jokeIdlingResource.setIdleState(true);
+            return randomJoke;
         } catch (IOException e) {
             Log.d("Async", "doInBackground: IOEXCEPTION");
+            jokeIdlingResource.setIdleState(true);
             return e.getMessage();
         }
     }
 
     @Override
     protected void onPostExecute(String result) {
+        MainActivity mainActivity = (MainActivity) context;
+        mainActivity.setJoke(result);
+        mainActivity.hideProgressBar();
         launchJokeActivity(result);
     }
 

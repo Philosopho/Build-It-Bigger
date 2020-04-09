@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.test.espresso.IdlingResource;
 
 import android.util.Pair;
 import android.view.Menu;
@@ -17,12 +18,26 @@ import com.krinotech.jokeprovider.Joker;
 public class MainActivity extends AppCompatActivity {
     private Joker joker;
 
+    public String getJoke() {
+        return joke;
+    }
+
+    private String joke;
+
+    public JokeIdlingResource getIdlingResource() {
+        return idlingResource;
+    }
+
+    private JokeIdlingResource idlingResource;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         joker = new Joker();
+
+        idlingResource = new JokeIdlingResource();
 
     }
 
@@ -50,8 +65,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "Joker"));
+        new EndpointsAsyncTask(this, idlingResource).execute();
     }
 
 
+    public void setJoke(String result) {
+        this.joke = result;
+    }
+
+
+    public void hideProgressBar() {
+        ((MainActivityFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.fragment))
+                .hideProgressBar();
+    }
+
+    public void showProgressBar() {
+        ((MainActivityFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.fragment))
+                .showAdProgress();
+    }
 }
