@@ -28,4 +28,9 @@ public class MyEndpoint {
         return joker;
     }
 
+    @ApiMethod(name = "getJoker")
+    public Joker getJoker() {
+        return new Joker();
+    }
+
 }

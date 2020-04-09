@@ -48,7 +48,7 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
 
         try {
             Log.d("Async", "doInBackground: TRY");
-            return myApiService.sayHi(name).execute().getData();
+            return myApiService.getJoker().execute().getRandomJoke();
         } catch (IOException e) {
             Log.d("Async", "doInBackground: IOEXCEPTION");
             return e.getMessage();
