@@ -20,6 +20,14 @@ apply plugin: 'war'
 apply plugin: 'com.google.cloud.tools.appengine'
 apply plugin: 'com.google.cloud.tools.endpoints-framework-server'
 
+appengine {
+    run {
+        host = "0.0.0.0"
+        port = 8080
+    }
+
+}
+
 sourceCompatibility = JavaVersion.VERSION_1_7
 targetCompatibility = JavaVersion.VERSION_1_7
 

@@ -1,29 +1,29 @@
 Warning: Google App Engine Java 7 runtime is deprecated.
 Warning: See https://cloud.google.com/appengine/docs/deprecations/java7
-Apr 08, 2020 1:03:48 PM com.google.appengine.tools.development.SystemPropertiesManager setSystemProperties
-INFO: Overwriting system property key 'java.util.logging.config.file', value 'C:\Users\alexl\AppData\Local\Google\Cloud SDK\google-cloud-sdk\platform\google_appengine\google\appengine\tools\java\config\sdk\logging.properties' with value 'WEB-INF/logging.properties' from 'C:\Users\alexl\UdacityProjects\BuildItBigger\backend\build\exploded-backend\WEB-INF\appengine-web.xml'
-Apr 08, 2020 1:03:48 PM com.google.apphosting.utils.jetty.JettyLogger info
+Apr 08, 2020 8:03:15 PM com.google.appengine.tools.development.SystemPropertiesManager setSystemProperties
+INFO: Overwriting system property key 'java.util.logging.config.file', value 'C:\Users\alexl\AppData\Local\Google\Cloud SDK\google-cloud-sdk\platform\google_appengine\google\appengine\tools\java\config\sdk\logging.properties' with value 'WEB-INF/logging.properties' from 'C:\Users\alexl\UdacityProjects\Build-It-Bigger\backend\build\exploded-backend\WEB-INF\appengine-web.xml'
+Apr 08, 2020 8:03:15 PM com.google.apphosting.utils.jetty.JettyLogger info
 INFO: Logging to JettyLogger(null) via com.google.apphosting.utils.jetty.JettyLogger
-Apr 08, 2020 5:03:48 PM com.google.appengine.tools.development.IsolatedAppClassLoader checkWorkingDirectory
-WARNING: Your working directory, (C:\Users\alexl\UdacityProjects\BuildItBigger\backend) is not equal to your 
-web application root (C:\Users\alexl\UdacityProjects\BuildItBigger\backend\build\exploded-backend)
+Apr 09, 2020 12:03:15 AM com.google.appengine.tools.development.IsolatedAppClassLoader checkWorkingDirectory
+WARNING: Your working directory, (C:\Users\alexl\UdacityProjects\Build-It-Bigger\backend) is not equal to your 
+web application root (C:\Users\alexl\UdacityProjects\Build-It-Bigger\backend\build\exploded-backend)
 You will not be able to access files from your working directory on the production server.
 
-Apr 08, 2020 5:03:49 PM com.google.apphosting.utils.jetty.JettyLogger info
+Apr 09, 2020 12:03:15 AM com.google.apphosting.utils.jetty.JettyLogger info
 INFO: jetty-6.1.x
-Apr 08, 2020 5:03:50 PM com.google.apphosting.utils.jetty.JettyLogger info
-INFO: Started SelectChannelConnector@localhost:8080
-Apr 08, 2020 5:03:50 PM com.google.appengine.tools.development.AbstractModule startup
+Apr 09, 2020 12:03:16 AM com.google.apphosting.utils.jetty.JettyLogger info
+INFO: Started SelectChannelConnector@0.0.0.0:8080
+Apr 09, 2020 12:03:16 AM com.google.appengine.tools.development.AbstractModule startup
 INFO: Module instance default is running at http://localhost:8080/
-Apr 08, 2020 5:03:50 PM com.google.appengine.tools.development.AbstractModule startup
+Apr 09, 2020 12:03:16 AM com.google.appengine.tools.development.AbstractModule startup
 INFO: The admin console is running at http://localhost:8080/_ah/admin
-Apr 08, 2020 1:03:50 PM com.google.appengine.tools.development.DevAppServerImpl doStart
+Apr 08, 2020 8:03:16 PM com.google.appengine.tools.development.DevAppServerImpl doStart
 INFO: Dev App Server is now running
-Apr 08, 2020 1:03:59 PM com.google.appengine.repackaged.com.google.protobuf.UnsafeUtil supportsUnsafeByteBufferOperations
+Apr 08, 2020 8:04:02 PM com.google.appengine.repackaged.com.google.protobuf.UnsafeUtil supportsUnsafeByteBufferOperations
 WARNING: platform method missing - proto runtime falling back to safer methods: java.security.AccessControlException: access denied ("java.lang.RuntimePermission" "accessClassInPackage.sun.misc")
-Apr 08, 2020 1:03:59 PM com.google.appengine.repackaged.com.google.protobuf.UnsafeUtil supportsUnsafeArrayOperations
+Apr 08, 2020 8:04:02 PM com.google.appengine.repackaged.com.google.protobuf.UnsafeUtil supportsUnsafeArrayOperations
 WARNING: platform method missing - proto runtime falling back to safer methods: java.security.AccessControlException: access denied ("java.lang.RuntimePermission" "accessClassInPackage.sun.misc")
-Apr 08, 2020 1:04:05 PM com.google.appengine.tools.development.ApiProxyLocalImpl log
+Apr 08, 2020 8:04:03 PM com.google.appengine.tools.development.ApiProxyLocalImpl log
 SEVERE: javax.servlet.ServletContext log: unavailable
 com.google.appengine.repackaged.com.google.api.client.http.HttpResponseException: 404 OK
 <html><head>
@@ -79,7 +79,7 @@ com.google.appengine.repackaged.com.google.api.client.http.HttpResponseException
 	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:409)
 	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
 
-Apr 08, 2020 1:04:05 PM com.google.apphosting.utils.jetty.JettyLogger warn
+Apr 08, 2020 8:04:03 PM com.google.apphosting.utils.jetty.JettyLogger warn
 WARNING: /_ah/api/static/proxy.html: com.google.appengine.repackaged.com.google.api.client.http.HttpResponseException: 404 OK
 <html><head>
 <meta http-equiv="content-type" content="text/html;charset=utf-8">
@@ -89,9 +89,7 @@ WARNING: /_ah/api/static/proxy.html: com.google.appengine.repackaged.com.google.
 <h1>Error: Not Found</h1>
 </body></html>
 
-Apr 08, 2020 1:04:05 PM com.google.appengine.tools.development.LocalResourceFileServlet doGet
-WARNING: No file found for: /favicon.ico
-Apr 08, 2020 1:16:09 PM com.google.apphosting.utils.jetty.JettyLogger warn
+Apr 08, 2020 8:04:06 PM com.google.apphosting.utils.jetty.JettyLogger warn
 WARNING: /_ah/api/static/proxy.html: javax.servlet.UnavailableException: com.google.appengine.repackaged.com.google.api.client.http.HttpResponseException: 404 OK
 <html><head>
 <meta http-equiv="content-type" content="text/html;charset=utf-8">
