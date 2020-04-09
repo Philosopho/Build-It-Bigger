@@ -8,33 +8,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.krinotech.jokeprovider.Joker;
 import com.udacity.gradle.builditbigger.free.MainActivityFragment;
 
 public class MainActivity extends AppCompatActivity {
+    private JokeIdlingResource idlingResource;
     private MainActivityFragment mainActivityFragment;
 
-    private Joker joker;
     private FragmentManager fragmentManager;
-
-    public String getJoke() {
-        return joke;
-    }
 
     private String joke;
 
-    public JokeIdlingResource getIdlingResource() {
-        return idlingResource;
-    }
-
-    private JokeIdlingResource idlingResource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        joker = new Joker();
 
         idlingResource = new JokeIdlingResource();
 
@@ -86,5 +74,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void showProgressBar() {
         mainActivityFragment.showProgressBar();
+    }
+
+    public String getJoke() {
+        return joke;
+    }
+
+    public JokeIdlingResource getIdlingResource() {
+        return idlingResource;
     }
 }
