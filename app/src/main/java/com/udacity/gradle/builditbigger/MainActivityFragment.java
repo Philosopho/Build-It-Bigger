@@ -45,11 +45,9 @@ public class MainActivityFragment extends Fragment {
 
     public void hideProgressBar() {
         fragmentMainBinding.pbJoke.setVisibility(View.GONE);
-        fragmentMainBinding.adView.setVisibility(View.GONE);
     }
 
     public void showAdProgress() {
         fragmentMainBinding.pbJoke.setVisibility(View.VISIBLE);
-        fragmentMainBinding.adView.setVisibility(View.VISIBLE);
     }
 }

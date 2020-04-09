@@ -12,22 +12,45 @@ buildscript {
 
 android {
     compileSdkVersion 29
+    final String APP_ID = "com.udacity.gradle.builditbigger"
+    final String ANDROID_JUNIT_RUNNER = "androidx.test.runner.AndroidJUnitRunner"
 
     defaultConfig {
-        applicationId "com.udacity.gradle.builditbigger"
+        applicationId APP_ID
         minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner ANDROID_JUNIT_RUNNER
     }
 
     buildTypes {
+        debug {
+
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    final String VERSION = "version"
+    flavorDimensions VERSION
+
+    productFlavors {
+        final String FREE = ".free"
+        final String PAID = ".paid"
+
+        free {
+            dimension VERSION
+            applicationId APP_ID + FREE
+        }
+
+        paid {
+            dimension VERSION
+            applicationId APP_ID + PAID
         }
     }
 
