@@ -22,10 +22,12 @@ public class MyEndpoint {
     /** A simple endpoint method that takes a name and says Hi back */
     @ApiMethod(name = "sayHi")
     public MyBean sayHi(@Named("name") String name) {
-        MyBean joker = new MyBean();
-        joker.setData("Hi, I'm joker: " + name);
+        MyBean myBean = new MyBean();
+        Joker joker = new Joker();
 
-        return joker;
+        myBean.setData(joker.getRandomJoke());
+
+        return myBean;
     }
 
     @ApiMethod(name = "getJoker")

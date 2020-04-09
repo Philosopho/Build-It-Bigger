@@ -28,7 +28,7 @@ public class Joker {
 
     public String getRandomJoke() {
         Random random = new Random();
-        int randomJoke = random.nextInt(joke.length());
+        int randomJoke = random.nextInt(this.jokes.length);
         return jokes[randomJoke];
     }
 }
