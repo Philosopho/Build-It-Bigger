@@ -1,17 +1,17 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.test.espresso.IdlingResource;
 
-import android.util.Pair;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.krinotech.jokeandroidlib.MainJokeActivity;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.krinotech.jokeprovider.Joker;
 
 
@@ -38,6 +38,11 @@ public class MainActivity extends AppCompatActivity {
         joker = new Joker();
 
         idlingResource = new JokeIdlingResource();
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {}
+        });
 
     }
 
@@ -84,5 +89,15 @@ public class MainActivity extends AppCompatActivity {
         ((MainActivityFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.fragment))
                 .showAdProgress();
+    }
+
+    public void showAd() {
+        InterstitialAd interstitialAd = ((MainActivityFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.fragment)).getInterstitialAd();
+        if (interstitialAd.isLoaded()) {
+            interstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
     }
 }

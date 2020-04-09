@@ -27,6 +27,7 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
     protected void onPreExecute() {
         super.onPreExecute();
         jokeIdlingResource.setIdleState(false);
+        ((MainActivity) context).showAd();
         ((MainActivity) context).showProgressBar();
     }
 
