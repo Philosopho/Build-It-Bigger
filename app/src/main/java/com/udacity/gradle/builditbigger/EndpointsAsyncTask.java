@@ -3,6 +3,7 @@ package com.udacity.gradle.builditbigger;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.util.Pair;
 import android.widget.Toast;
 
@@ -27,7 +28,7 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
                     // options for running against local devappserver
                     // - 10.0.2.2 is localhost's IP address in Android emulator
                     // - turn off compression when running against local devappserver
-                    .setRootUrl("http://192.168.1.239/_ah/api/")
+                    .setRootUrl("http://192.168.1.239:8080/_ah/api/")
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                         @Override
                         public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
@@ -35,16 +36,21 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
                         }
                     });
             // end options for devappserver
-
+            Log.d("AsyncTask", "doInBackground: ");
             myApiService = builder.build();
+            Log.d("AsyncTask", "doInBackground: Complete");
         }
 
         context = params[0].first;
         String name = params[0].second;
 
+        Log.d("Async", myApiService.toString());
+
         try {
+            Log.d("Async", "doInBackground: TRY");
             return myApiService.sayHi(name).execute().getJoke();
         } catch (IOException e) {
+            Log.d("Async", "doInBackground: IOEXCEPTION");
             return e.getMessage();
         }
     }
