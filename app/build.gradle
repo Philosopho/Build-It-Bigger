@@ -61,6 +61,17 @@ android {
     }
 }
 
+task startTest {
+    dependsOn(":backend:startServer")
+    dependsOn(":backend:appengineStart")
+    dependsOn(":app:connectedCheck")
+    dependsOn(":backend:appengineStop")
+
+    tasks.findByPath(":backend:appengineStart").mustRunAfter(":backend:startServer")
+    tasks.findByPath(":app:connectedCheck").mustRunAfter(":backend:appengineStart")
+    tasks.findByPath(":backend:appengineStop").mustRunAfter(":app:connectedCheck")
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     endpointsServer project(path: ':backend', configuration: 'endpoints')
