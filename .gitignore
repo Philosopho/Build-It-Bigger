@@ -2,6 +2,11 @@
 /local.properties
 /.idea/workspace.xml
 /.idea/libraries
+/.idea/caches/build_file_checksums.ser
+/app/app.iml
 .DS_Store
+/backend/build/distributions
+*.zip
+*.txt
 /build
 /captures
