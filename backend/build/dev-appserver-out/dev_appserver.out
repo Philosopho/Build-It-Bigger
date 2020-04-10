@@ -1,0 +1,75 @@
+Apr 09, 2020 11:03:00 PM com.google.appengine.tools.development.SystemPropertiesManager setSystemProperties
+INFO: Overwriting system property key 'java.util.logging.config.file', value 'C:\Users\alexl\AppData\Local\Google\Cloud SDK\google-cloud-sdk\platform\google_appengine\google\appengine\tools\java\config\sdk\logging.properties' with value 'WEB-INF/logging.properties' from 'C:\Users\alexl\UdacityProjects\Build-It-Bigger\backend\build\exploded-backend\WEB-INF\appengine-web.xml'
+2020-04-09 23:03:00.454:INFO::main: Logging initialized @527ms to org.eclipse.jetty.util.log.StdErrLog
+2020-04-09 23:03:00.517:WARN:oejs.AbstractConnector:main: Ignoring deprecated socket close linger time
+Apr 10, 2020 3:03:00 AM com.google.appengine.tools.development.IsolatedAppClassLoader checkWorkingDirectory
+WARNING: Your working directory, (C:\Users\alexl\UdacityProjects\Build-It-Bigger) is not equal to your 
+web application root (C:\Users\alexl\UdacityProjects\Build-It-Bigger\backend\build\exploded-backend)
+You will not be able to access files from your working directory on the production server.
+
+2020-04-09 23:03:00.799:INFO:oejs.Server:main: jetty-9.4.27.v20200227; built: 2020-02-27T18:37:21.340Z; git: a304fd9f351f337e7c0e2a7c28878dd536149c6c; jvm 1.8.0_202-release-1483-b03
+2020-04-09 23:03:01.528:INFO:oejsh.ContextHandler:main: Started c.g.a.t.d.j.DevAppEngineWebAppContext@5b38c1ec{/,file:///C:/Users/alexl/UdacityProjects/Build-It-Bigger/backend/build/exploded-backend/,AVAILABLE}{C:\Users\alexl\UdacityProjects\Build-It-Bigger\backend\build\exploded-backend}
+2020-04-09 23:03:01.528:INFO:oejs.session:main: DefaultSessionIdManager workerName=node0
+2020-04-09 23:03:01.528:INFO:oejs.session:main: node0 Scavenging disabled
+2020-04-09 23:03:01.544:INFO:oejs.AbstractConnector:main: Started NetworkTrafficSelectChannelConnector@57536d79{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2020-04-09 23:03:01.548:INFO:oejs.Server:main: Started @1621ms
+Apr 10, 2020 3:03:01 AM com.google.appengine.tools.development.AbstractModule startup
+INFO: Module instance default is running at http://localhost:8080/
+Apr 10, 2020 3:03:01 AM com.google.appengine.tools.development.AbstractModule startup
+INFO: The admin console is running at http://localhost:8080/_ah/admin
+Apr 09, 2020 11:03:01 PM com.google.appengine.tools.development.DevAppServerImpl doStart
+INFO: Dev App Server is now running
+2020-04-09 23:04:12.266:WARN:oeju.Scanner:Scanner-0: 
+java.nio.file.NoSuchFileException: C:\Users\alexl\UdacityProjects\Build-It-Bigger\backend\build\exploded-backend\WEB-INF\appengine-web.xml
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:79)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:97)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:102)
+	at sun.nio.fs.WindowsFileAttributeViews$Basic.readAttributes(WindowsFileAttributeViews.java:53)
+	at sun.nio.fs.WindowsFileAttributeViews$Basic.readAttributes(WindowsFileAttributeViews.java:38)
+	at sun.nio.fs.WindowsFileSystemProvider.readAttributes(WindowsFileSystemProvider.java:193)
+	at java.nio.file.Files.readAttributes(Files.java:1737)
+	at java.nio.file.FileTreeWalker.getAttributes(FileTreeWalker.java:225)
+	at java.nio.file.FileTreeWalker.visit(FileTreeWalker.java:276)
+	at java.nio.file.FileTreeWalker.walk(FileTreeWalker.java:322)
+	at java.nio.file.Files.walkFileTree(Files.java:2662)
+	at org.eclipse.jetty.util.Scanner.scanFiles(Scanner.java:670)
+	at org.eclipse.jetty.util.Scanner.scan(Scanner.java:640)
+	at org.eclipse.jetty.util.Scanner$1.run(Scanner.java:558)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2020-04-09 23:04:17.316:WARN:oeju.Scanner:Scanner-0: 
+java.nio.file.NoSuchFileException: C:\Users\alexl\UdacityProjects\Build-It-Bigger\backend\build\exploded-backend\WEB-INF\appengine-web.xml
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:79)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:97)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:102)
+	at sun.nio.fs.WindowsFileAttributeViews$Basic.readAttributes(WindowsFileAttributeViews.java:53)
+	at sun.nio.fs.WindowsFileAttributeViews$Basic.readAttributes(WindowsFileAttributeViews.java:38)
+	at sun.nio.fs.WindowsFileSystemProvider.readAttributes(WindowsFileSystemProvider.java:193)
+	at java.nio.file.Files.readAttributes(Files.java:1737)
+	at java.nio.file.FileTreeWalker.getAttributes(FileTreeWalker.java:225)
+	at java.nio.file.FileTreeWalker.visit(FileTreeWalker.java:276)
+	at java.nio.file.FileTreeWalker.walk(FileTreeWalker.java:322)
+	at java.nio.file.Files.walkFileTree(Files.java:2662)
+	at org.eclipse.jetty.util.Scanner.scanFiles(Scanner.java:670)
+	at org.eclipse.jetty.util.Scanner.scan(Scanner.java:640)
+	at org.eclipse.jetty.util.Scanner$1.run(Scanner.java:558)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2020-04-09 23:04:22.367:WARN:oeju.Scanner:Scanner-0: 
+java.nio.file.NoSuchFileException: C:\Users\alexl\UdacityProjects\Build-It-Bigger\backend\build\exploded-backend\WEB-INF\appengine-web.xml
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:79)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:97)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:102)
+	at sun.nio.fs.WindowsFileAttributeViews$Basic.readAttributes(WindowsFileAttributeViews.java:53)
+	at sun.nio.fs.WindowsFileAttributeViews$Basic.readAttributes(WindowsFileAttributeViews.java:38)
+	at sun.nio.fs.WindowsFileSystemProvider.readAttributes(WindowsFileSystemProvider.java:193)
+	at java.nio.file.Files.readAttributes(Files.java:1737)
+	at java.nio.file.FileTreeWalker.getAttributes(FileTreeWalker.java:225)
+	at java.nio.file.FileTreeWalker.visit(FileTreeWalker.java:276)
+	at java.nio.file.FileTreeWalker.walk(FileTreeWalker.java:322)
+	at java.nio.file.Files.walkFileTree(Files.java:2662)
+	at org.eclipse.jetty.util.Scanner.scanFiles(Scanner.java:670)
+	at org.eclipse.jetty.util.Scanner.scan(Scanner.java:640)
+	at org.eclipse.jetty.util.Scanner$1.run(Scanner.java:558)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)

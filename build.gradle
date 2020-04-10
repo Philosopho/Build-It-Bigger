@@ -20,3 +20,10 @@ allprojects {
         google()
     }
 }
+
+tasks.getByPath(":backend:appengineStart")
+        .dependsOn(":backend:startServer")
+
+tasks.getByPath(":app:connectedCheck").dependsOn(":backend:startServer")
+
+tasks.getByPath(":backend:appengineStop").mustRunAfter(":app:connectedCheck")

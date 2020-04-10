@@ -1,14 +1,13 @@
 package com.udacity.gradle.builditbigger;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.udacity.gradle.builditbigger.free.MainActivityFragment;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+
 
 public class MainActivity extends AppCompatActivity {
     private JokeIdlingResource idlingResource;

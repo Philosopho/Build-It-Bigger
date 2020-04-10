@@ -45,12 +45,14 @@ android {
 
         free {
             dimension VERSION
-            applicationId APP_ID + FREE
+            applicationIdSuffix FREE
+            versionNameSuffix FREE
         }
 
         paid {
             dimension VERSION
-            applicationId APP_ID + PAID
+            applicationIdSuffix PAID
+            versionNameSuffix PAID
         }
     }
 
