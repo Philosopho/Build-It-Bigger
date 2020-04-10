@@ -1,6 +1,7 @@
 package com.udacity.gradle.builditbigger;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -8,10 +9,17 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
+import com.google.android.gms.ads.doubleclick.PublisherInterstitialAd;
+
 
 public class MainActivity extends AppCompatActivity {
     private JokeIdlingResource idlingResource;
     private MainActivityFragment mainActivityFragment;
+    private InterstitialAd publisherInterstitialAd;
 
     private FragmentManager fragmentManager;
 
@@ -24,6 +32,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         idlingResource = new JokeIdlingResource();
+
+        publisherInterstitialAd = new InterstitialAd(this);
+
+        publisherInterstitialAd.setAdUnitId(getString(R.string.test_ad_id));
+        AdRequest adRequestInterstitial = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+
+        publisherInterstitialAd.loadAd(adRequestInterstitial);
 
         mainActivityFragment = new MainActivityFragment();
 
@@ -58,6 +75,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
+        if(publisherInterstitialAd.isLoaded()) {
+            Log.d("Ad", "Loaded");
+            publisherInterstitialAd.show();
+        }
+        else {
+            Log.d("Ad", "Not loaded");
+        }
         new EndpointsAsyncTask(this, idlingResource).execute();
     }
 
