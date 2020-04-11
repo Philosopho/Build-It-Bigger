@@ -1,21 +1,30 @@
-Apr 09, 2020 10:04:03 AM com.google.appengine.tools.development.SystemPropertiesManager setSystemProperties
+Apr 10, 2020 11:38:23 AM com.google.appengine.tools.development.SystemPropertiesManager setSystemProperties
 INFO: Overwriting system property key 'java.util.logging.config.file', value 'C:\Users\alexl\AppData\Local\Google\Cloud SDK\google-cloud-sdk\platform\google_appengine\google\appengine\tools\java\config\sdk\logging.properties' with value 'WEB-INF/logging.properties' from 'C:\Users\alexl\UdacityProjects\Build-It-Bigger\backend\build\exploded-backend\WEB-INF\appengine-web.xml'
-2020-04-09 10:04:03.900:INFO::main: Logging initialized @517ms to org.eclipse.jetty.util.log.StdErrLog
-2020-04-09 10:04:03.953:WARN:oejs.AbstractConnector:main: Ignoring deprecated socket close linger time
-Apr 09, 2020 2:04:04 PM com.google.appengine.tools.development.IsolatedAppClassLoader checkWorkingDirectory
-WARNING: Your working directory, (C:\Users\alexl\UdacityProjects\Build-It-Bigger\backend) is not equal to your 
+2020-04-10 11:38:23.354:INFO::main: Logging initialized @1412ms to org.eclipse.jetty.util.log.StdErrLog
+2020-04-10 11:38:23.406:WARN:oejs.AbstractConnector:main: Ignoring deprecated socket close linger time
+Apr 10, 2020 3:38:23 PM com.google.appengine.tools.development.IsolatedAppClassLoader checkWorkingDirectory
+WARNING: Your working directory, (C:\Users\alexl\UdacityProjects\Build-It-Bigger) is not equal to your 
 web application root (C:\Users\alexl\UdacityProjects\Build-It-Bigger\backend\build\exploded-backend)
 You will not be able to access files from your working directory on the production server.
 
-2020-04-09 10:04:04.228:INFO:oejs.Server:main: jetty-9.4.27.v20200227; built: 2020-02-27T18:37:21.340Z; git: a304fd9f351f337e7c0e2a7c28878dd536149c6c; jvm 1.8.0_202-release-1483-b03
-2020-04-09 10:04:04.951:INFO:oejsh.ContextHandler:main: Started c.g.a.t.d.j.DevAppEngineWebAppContext@5b38c1ec{/,file:///C:/Users/alexl/UdacityProjects/Build-It-Bigger/backend/build/exploded-backend/,AVAILABLE}{C:\Users\alexl\UdacityProjects\Build-It-Bigger\backend\build\exploded-backend}
-2020-04-09 10:04:04.951:INFO:oejs.session:main: DefaultSessionIdManager workerName=node0
-2020-04-09 10:04:04.951:INFO:oejs.session:main: node0 Scavenging disabled
-2020-04-09 10:04:04.967:INFO:oejs.AbstractConnector:main: Started NetworkTrafficSelectChannelConnector@57536d79{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
-2020-04-09 10:04:04.970:INFO:oejs.Server:main: Started @1586ms
-Apr 09, 2020 2:04:04 PM com.google.appengine.tools.development.AbstractModule startup
+2020-04-10 11:38:23.680:INFO:oejs.Server:main: jetty-9.4.27.v20200227; built: 2020-02-27T18:37:21.340Z; git: a304fd9f351f337e7c0e2a7c28878dd536149c6c; jvm 1.8.0_212-release-1586-b04
+2020-04-10 11:38:24.432:INFO:oejsh.ContextHandler:main: Started c.g.a.t.d.j.DevAppEngineWebAppContext@5b38c1ec{/,file:///C:/Users/alexl/UdacityProjects/Build-It-Bigger/backend/build/exploded-backend/,AVAILABLE}{C:\Users\alexl\UdacityProjects\Build-It-Bigger\backend\build\exploded-backend}
+2020-04-10 11:38:24.433:INFO:oejs.session:main: DefaultSessionIdManager workerName=node0
+2020-04-10 11:38:24.433:INFO:oejs.session:main: node0 Scavenging disabled
+2020-04-10 11:38:24.450:INFO:oejs.AbstractConnector:main: Started NetworkTrafficSelectChannelConnector@57536d79{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2020-04-10 11:38:24.455:INFO:oejs.Server:main: Started @2514ms
+Apr 10, 2020 3:38:24 PM com.google.appengine.tools.development.AbstractModule startup
 INFO: Module instance default is running at http://localhost:8080/
-Apr 09, 2020 2:04:04 PM com.google.appengine.tools.development.AbstractModule startup
+Apr 10, 2020 3:38:24 PM com.google.appengine.tools.development.AbstractModule startup
 INFO: The admin console is running at http://localhost:8080/_ah/admin
-Apr 09, 2020 10:04:04 AM com.google.appengine.tools.development.DevAppServerImpl doStart
+Apr 10, 2020 11:38:24 AM com.google.appengine.tools.development.DevAppServerImpl doStart
 INFO: Dev App Server is now running
+2020-04-10 11:38:52.460:INFO:oejs.AbstractConnector:pool-1-thread-1: Stopped NetworkTrafficSelectChannelConnector@57536d79{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2020-04-10 11:38:52.464:INFO:oejsh.ContextHandler:pool-1-thread-1: Stopped c.g.a.t.d.j.DevAppEngineWebAppContext@5b38c1ec{/,file:///C:/Users/alexl/UdacityProjects/Build-It-Bigger/backend/build/exploded-backend/,UNAVAILABLE}{C:\Users\alexl\UdacityProjects\Build-It-Bigger\backend\build\exploded-backend}
+Apr 10, 2020 11:38:52 AM com.google.appengine.tools.development.AbstractModule shutdown
+INFO: Shutting down module instance default
+Shutting down.
+Apr 10, 2020 11:38:52 AM com.google.appengine.api.datastore.dev.LocalDatastoreService cleanupActiveServices
+INFO: scheduler shutting down.
+Apr 10, 2020 11:38:52 AM com.google.appengine.api.datastore.dev.LocalDatastoreService cleanupActiveServices
+INFO: scheduler finished shutting down.

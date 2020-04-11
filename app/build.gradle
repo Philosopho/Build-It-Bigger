@@ -12,28 +12,64 @@ buildscript {
 
 android {
     compileSdkVersion 29
+    final String APP_ID = "com.udacity.gradle.builditbigger"
+    final String ANDROID_JUNIT_RUNNER = "androidx.test.runner.AndroidJUnitRunner"
 
     defaultConfig {
-        applicationId "com.udacity.gradle.builditbigger"
+        applicationId APP_ID
         minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner ANDROID_JUNIT_RUNNER
     }
 
     buildTypes {
+        debug {
+
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
+    final String VERSION = "version"
+    flavorDimensions VERSION
+
+    productFlavors {
+        final String FREE = ".free"
+        final String PAID = ".paid"
+
+        free {
+            dimension VERSION
+            applicationIdSuffix FREE
+            versionNameSuffix FREE
+        }
+
+        paid {
+            dimension VERSION
+            applicationIdSuffix PAID
+            versionNameSuffix PAID
+        }
+    }
+
     dataBinding {
         enabled = true
     }
+}
+
+task startTest {
+    dependsOn(":backend:startServer")
+    dependsOn(":backend:appengineStart")
+    dependsOn(":app:connectedCheck")
+    dependsOn(":backend:appengineStop")
+
+    tasks.findByPath(":backend:appengineStart").mustRunAfter(":backend:startServer")
+    tasks.findByPath(":app:connectedCheck").mustRunAfter(":backend:appengineStart")
+    tasks.findByPath(":backend:appengineStop").mustRunAfter(":app:connectedCheck")
 }
 
 dependencies {
@@ -43,10 +79,12 @@ dependencies {
     implementation project(':jokeandroidlib')
     implementation 'androidx.test.espresso:espresso-idling-resource:3.2.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'com.google.android.gms:play-services-ads:19.0.1'
     implementation 'com.google.api-client:google-api-client:1.23.0'
     implementation 'com.google.http-client:google-http-client-android:1.23.0'
     implementation 'com.google.code.findbugs:jsr305:3.0.2'
+
+    // Free Build
+    freeImplementation 'com.google.android.gms:play-services-ads:19.0.1'
 
     androidTestImplementation 'androidx.test:rules:1.2.0'
     androidTestImplementation 'androidx.test:runner:1.3.0-alpha05'
