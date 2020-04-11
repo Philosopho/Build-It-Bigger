@@ -1,19 +1,13 @@
 package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.util.Pair;
-import android.widget.Toast;
-
-import androidx.test.espresso.IdlingResource;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
-import com.krinotech.jokeandroidlib.MainJokeActivity;
 import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
@@ -74,14 +68,8 @@ public class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
     protected void onPostExecute(String result) {
         MainActivity mainActivity = (MainActivity) context;
         mainActivity.setJoke(result);
-        mainActivity.hideProgressBar();
-        launchJokeActivity(result);
+        mainActivity.setUpIntentAndLaunch(result);
     }
 
-    public void launchJokeActivity(String joke) {
-        Intent intent = new Intent(context, MainJokeActivity.class);
-        intent.putExtra(MainJokeActivity.EXTRA_JOKE, joke);
 
-        context.startActivity(intent);
-    }
 }

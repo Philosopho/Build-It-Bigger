@@ -1,6 +1,8 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.krinotech.jokeandroidlib.MainJokeActivity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -56,6 +59,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void setUpIntentAndLaunch(String joke) {
+        Log.d("MainActivity", "setUpIntentAndLaunch: ");
+        Intent intent = new Intent(this, MainJokeActivity.class);
+        intent.putExtra(MainJokeActivity.EXTRA_JOKE, joke);
+
+        startActivity(intent);
     }
 
     public void tellJoke(View view) {

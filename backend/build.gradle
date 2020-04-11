@@ -26,14 +26,6 @@ appengine {
         port = 8080
     }
 
-//    deploy {
-//
-//        version = "GCLOUD_CONFIG"
-//
-//        project = "GCLOUD_CONFIG"
-//
-//    }
-
 }
 
 task startServer {

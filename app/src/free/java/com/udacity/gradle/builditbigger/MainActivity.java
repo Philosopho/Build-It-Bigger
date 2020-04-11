@@ -1,5 +1,6 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -9,16 +10,21 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
-import com.google.android.gms.ads.doubleclick.PublisherInterstitialAd;
+import com.krinotech.jokeandroidlib.MainJokeActivity;
 
 
 public class MainActivity extends AppCompatActivity {
     private JokeIdlingResource idlingResource;
     private MainActivityFragment mainActivityFragment;
+    private boolean showAd = false;
+
+    public InterstitialAd getPublisherInterstitialAd() {
+        return publisherInterstitialAd;
+    }
+
     private InterstitialAd publisherInterstitialAd;
 
     private FragmentManager fragmentManager;
@@ -35,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
         publisherInterstitialAd = new InterstitialAd(this);
 
-        publisherInterstitialAd.setAdUnitId(getString(R.string.test_ad_id));
+        publisherInterstitialAd.setAdUnitId("/6499/example/interstitial");
+
         AdRequest adRequestInterstitial = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
@@ -50,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
                 .add(R.id.fragment, mainActivityFragment, MainActivityFragment.TAG)
                 .commit();
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -75,14 +81,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        if(publisherInterstitialAd.isLoaded()) {
-            Log.d("Ad", "Loaded");
-            publisherInterstitialAd.show();
-        }
-        else {
-            Log.d("Ad", "Not loaded");
-        }
-        new EndpointsAsyncTask(this, idlingResource).execute();
+        new EndpointsAsyncTask(MainActivity.this, idlingResource).execute();
     }
 
 
@@ -106,4 +105,66 @@ public class MainActivity extends AppCompatActivity {
     public JokeIdlingResource getIdlingResource() {
         return idlingResource;
     }
+
+    public void setUpIntentAndLaunch(String joke) {
+        Log.d("MainActivity", "setUpIntentAndLaunch: ");
+        Intent intent = new Intent(this, MainJokeActivity.class);
+        intent.putExtra(MainJokeActivity.EXTRA_JOKE, joke);
+
+        showAd = true;
+        setUpAd(intent);
+    }
+
+    private void launchJokeActivity(Intent intent) {
+        Log.d("MainActivity", "launchJokeActivity: ");
+        startActivity(intent);
+    }
+
+
+    private void setUpAd(final Intent intent) {
+        Log.d("MainActivity", "setUpAd: ");
+        publisherInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                hideProgressBar();
+                if(showAd) {
+                    getPublisherInterstitialAd().show();
+                    showAd = false;
+                }
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                hideProgressBar();
+                loadAd();
+                launchJokeActivity(intent);
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                loadAd();
+                launchJokeActivity(intent);
+            }
+
+            @Override
+            public void onAdClicked() {
+                loadAd();
+                launchJokeActivity(intent);
+            }
+
+            @Override
+            public void onAdClosed() {
+                loadAd();
+                launchJokeActivity(intent);
+            }
+        });
+    }
+
+    private void loadAd() {
+        getPublisherInterstitialAd().loadAd(new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build());
+        showAd = false;
+    }
+
 }
